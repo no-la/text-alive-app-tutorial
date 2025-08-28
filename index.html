@@ -9,6 +9,16 @@
   </head>
   <body>
     <h1>TextAlive API Sample</h1>
+    <input type="text" id="songUrl" name="songUrl" size="50" autocomplete="on" list="songs" placeholder="楽曲のURLを入力">
+    <datalist id="songs">
+      <option value="https://www.youtube.com/watch?v=ygY2qObZv24"></option>
+      <option value="https://www.youtube.com/watch?v=a-Nf3QUFkOU"></option>
+      <option value="https://www.youtube.com/watch?v=XSLhsjepelI"></option>
+      <option value="https://www.youtube.com/watch?v=xOKplMgHxxA"></option>
+    </datalist>
+    <button>再生</button>
+
+    <div id="info"></div>
     <p id="text">ここに歌詞が表示されます</p>
     <div id="media"></div>
     <script type="module" src="./src/main.js"></script>
