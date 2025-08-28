@@ -43,14 +43,15 @@ const run = () => {
     onVideoReady: () => {
       // 曲の読み込み完了
       setSongInfo(player.data.song.name, player.data.song.artist.name);
+      console.log("songMap", player.data.songMap);
     },
     onTimerReady: () => {
       // 再生準備完了
       player.requestPlay();
-      let w = player.video.firstWord;
-      while (w) {
-        w.animate = animateWord;
-        w = w.next;
+      let p = player.video.firstPhrase;
+      while (p) {
+        p.animate = animateWord;
+        p = p.next;
       }
     },
   });
