@@ -18,6 +18,10 @@ const songUrl = () => {
   );
 };
 
+const setSongInfo = (title, artist) => {
+  document.querySelector("#info").textContent = `${title} - ${artist}`;
+};
+
 const run = () => {
   // TextAlive Player を作成
   const player = new Player({
@@ -31,13 +35,14 @@ const run = () => {
     alert("楽曲のURLを入力してください");
     return;
   }
-  // 楽曲が読み込まれたら開始
+
   player.addListener({
     onAppReady: () => {
       player.createFromSongUrl(url);
     },
     onVideoReady: () => {
       // 曲の読み込み完了
+      setSongInfo(player.data.song.name, player.data.song.artist.name);
     },
     onTimerReady: () => {
       // 再生準備完了

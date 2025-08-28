@@ -3,3 +3,9 @@
   font-weight: bold;
   color: #6ca5ff;
 }
+
+#info {
+  padding: 20px 0;
+  font-size: 1.1em;
+  color: #333333;
+}
