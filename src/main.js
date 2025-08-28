@@ -47,9 +47,7 @@ const run = () => {
   }
 
   player.volume = volume();
-  document.querySelector("#volume").addEventListener("input", () => {
-    player.volume = volume();
-  });
+  setFetchVolumeInterval(player);
 
   player.addListener({
     onAppReady: () => {
