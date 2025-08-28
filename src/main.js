@@ -20,11 +20,14 @@ const player = new Player({
 // 楽曲が読み込まれたら開始
 player.addListener({
   onAppReady: () => {
-    if (!player.app.managed) {
-      player.createFromSongUrl("https://piapro.jp/t/RoPB/20210213190037"); // サンプル曲
-    }
+    player.createFromSongUrl("http://piapro.jp/t/C0lr/20180328201242"); // サンプル曲
   },
   onVideoReady: () => {
+    // 曲の読み込み完了
+  },
+  onTimerReady: () => {
+    // 再生準備完了
+    player.requestPlay();
     let w = player.video.firstWord;
     while (w) {
       w.animate = animateWord;
