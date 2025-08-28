@@ -18,6 +18,16 @@ const songUrl = () => {
   );
 };
 
+const volume = () => {
+  return document.querySelector("#volume").value;
+};
+
+const setFetchVolumeInterval = (player) => {
+  setInterval(() => {
+    player.volume = volume();
+  }, 1000);
+};
+
 const setSongInfo = (title, artist) => {
   document.querySelector("#info").textContent = `${title} - ${artist}`;
 };
@@ -35,6 +45,11 @@ const run = () => {
     alert("楽曲のURLを入力してください");
     return;
   }
+
+  player.volume = volume();
+  document.querySelector("#volume").addEventListener("input", () => {
+    player.volume = volume();
+  });
 
   player.addListener({
     onAppReady: () => {
