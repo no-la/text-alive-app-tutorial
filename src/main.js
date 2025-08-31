@@ -2,7 +2,6 @@ import { Player } from "textalive-app-api";
 
 // アプリトークンを読み込み
 const TEXT_ALIVE_APP_TOKEN = import.meta.env.VITE_TEXT_ALIVE_APP_TOKEN;
-console.log("token : ", TEXT_ALIVE_APP_TOKEN);
 
 // 単語が発声されていたら #text に表示する
 const animateWord = (now, unit) => {
@@ -22,10 +21,10 @@ const volume = () => {
   return document.querySelector("#volume").value;
 };
 
-const setFetchVolumeInterval = (player) => {
-  setInterval(() => {
+const setFetchVolumeEvent = (player) => {
+  document.querySelector("#volume").addEventListener("input", () => {
     player.volume = volume();
-  }, 1000);
+  });
 };
 
 const setSongInfo = (title, artist) => {
@@ -47,7 +46,7 @@ const run = () => {
   }
 
   player.volume = volume();
-  setFetchVolumeInterval(player);
+  setFetchVolumeEvent(player);
 
   player.addListener({
     onAppReady: () => {
